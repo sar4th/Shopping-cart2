@@ -1,0 +1,25 @@
+<div class="conatiner mt-5">
+<form action="/signup" method="post" class="form">
+  <h1 class="form__title">Create an account</h1>
+  <p class="form__subtitle">Please fill in this form to create an account.</p>
+  <div class="form__group">
+    <label for="name" class="form__label">Name</label>
+    <input type="text" class="form__input" placeholder="Enter Name" name="name" id="name" required>
+  </div>
+  <div class="form__group">
+    <label for="email" class="form__label">Email</label>
+    <input type="email" class="form__input" placeholder="Enter Email" name="email" id="email" required>
+  </div>
+  <div class="form__group">
+    <label for="password" class="form__label">Password</label>
+    <input type="password" class="form__input" placeholder="Enter Password" name="password" id="password" required>
+  </div>
+  <div class="form__group">
+    <input type="checkbox" class="form__checkbox" name="agree" id="agree" required>
+    <label for="agree" class="form__checkbox-label">By creating an account you agree to our <a href="#" class="form__link">Terms & Privacy</a>.</label>
+  </div>
+  <div class="form__group">
+    <button type="submit" class="form__button">Sign Up</button>
+  </div>
+</form>
+</div>

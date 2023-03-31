@@ -1,0 +1,230 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    border: 0;
+} */
+
+/* .body{
+ font-family: 'Barlow', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif;
+background-color: black;
+
+} */
+.fa,
+.fab,
+.fad,
+.fal,
+.far,
+.fas {
+  font-family: "Font Awesome";
+  font-weight: normal;
+  font-style: normal;
+}
+h1 {
+  color: #2ecc71; /* set text color */
+  font-size: 3rem; /* set font size */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* add text shadow */
+  font-weight: bold; /* make text bold */
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+#adminTable tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Add border to table rows and remove default border */
+  #adminTable tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #adminTable tbody tr:first-child {
+    border-top: none;
+  }
+  
+  /* Style table headers */
+  #adminTable thead th {
+    text-align: center;
+    background-color: #f2f2f2;
+    border-top: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Style table cells */
+  #adminTable tbody td {
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  /* Style table options column */
+  #adminTable tbody td:last-child {
+    text-align: center;
+  }
+  
+  #adminTable tbody td:last-child a {
+    margin-right: 5px;
+  }
+  
+  /* Add margin to table options buttons */
+  #adminTable tbody td:last-child .btn {
+    margin-right: 5px;
+  }
+  
+  /* Style add product button */
+  .btn-success {
+    margin-bottom: 10px;
+  }
+  
+  /* Style table pagination */
+  .dataTables_paginate {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .dataTables_paginate .paginate_button {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  
+  .dataTables_paginate .paginate_button.current {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+  }
+  
+  .dataTables_paginate .paginate_button:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+  }
+/* style for the form */
+.login-form {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.login-form h1 {
+  color: #343a40;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+
+.login-form .form-control {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #555;
+  font-size: 16px;
+  height: 50px;
+  padding: 10px 15px;
+}
+
+.login-form .btn {
+  background-color: #007bff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  height: 50px;
+  padding: 10px 15px;
+}
+
+.login-form .btn:focus,
+.login-form .btn:active {
+  box-shadow: none;
+}
+
+.login-form p {
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.login-form a {
+  color: #007bff;
+}
+/* signup form */
+.form {
+  border: 1px solid #ccc;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form__title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.form__subtitle {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.form__group {
+  margin-bottom: 20px;
+}
+
+.form__label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form__checkbox {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.form__checkbox-label {
+  font-size: 14px;
+}
+
+.form__link {
+  color: dodgerblue;
+}
+
+.form__button {
+  background-color: dodgerblue;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form__button:hover {
+  background-color: #0069d9;
+}

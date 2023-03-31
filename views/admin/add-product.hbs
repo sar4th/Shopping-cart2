@@ -1,0 +1,25 @@
+<div class="container">
+  <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+    <div class="mb-3 mt-3">
+      <label for="email" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="" name="name">
+    </div>
+    <div class="mb-3">
+      <label for="pwd" class="form-label">Category</label>
+      <input type="text" class="form-control" id="cat" placeholder="" name="category">
+    </div>
+    <div class="mb-3">
+      <label for="pwd" class="form-label">Price</label>
+      <input type="text" class="form-control" id="price" placeholder="" name="price">
+    </div>
+    <div class="mb-3">
+      <label for="pwd" class="form-label">Description</label>
+      <input type="text" class="form-control" placeholder="" name="description">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Image</label>
+      <input type="file" class="form-control" name="Image">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

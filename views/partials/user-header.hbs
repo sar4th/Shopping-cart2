@@ -1,0 +1,95 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3">
+    <div class="container">
+      <div class="logo">
+        <a href=""><img src="images/logo.png" class="logo-img"></a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav mx-auto text-uppercase fw-bold">
+          <li class="nav-item">
+            <a class="nav-link" href="#books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cart">
+              Cart
+              <span class="badge bg-success" id="cart-count">{{cartCount}}</span>
+            </a>
+          </li>
+          {{#if user}}
+          <li class="nav-item">
+            <a class="nav-link" href="/orders" >Orders</a>
+          </li>
+          {{/if}}
+            <li class="nav-item">
+            <a class="nav-link" href="#footer">Contact us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {{#if user}}
+              {{user.name}}
+              {{else}}
+              Account
+              {{/if}}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              {{#if user}}
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              {{else}}
+              <li><a class="dropdown-item" href="/login">Login</a></li>
+              {{/if}}
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+
+{{!--
+<nav>
+
+  <div class="logo">
+    <img src="images/logo.png">
+  </div>
+
+  <ul>
+    <li><a href="#Home">Home</a></li>
+    <li><a href="#Books">Books</a></li>
+    <li><a href="#Cart">Cart</a></li>
+    {{#if user}}
+    <li><a href="#Orders">Orders</a></li>
+    {{/if}}
+    <li><a href="#Contact us">Contact uss</a></li>
+
+  </ul>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      {{#if user}}
+      {{user.name}}
+      {{else}}
+      Account
+      {{/if}}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      {{#if user}}
+      <li><a class="dropdown-item" href="/logout">Logout</a></li>
+      {{else}}
+      <li><a class="dropdown-item" href="/login">Login</a></li>
+      {{/if}}
+
+    </ul>
+  </div>
+</nav> --}}

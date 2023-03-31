@@ -1,0 +1,28 @@
+<h1 class="mx-auto">All users</h1>
+<div class="container">
+    <section class="mt-5">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Total Orders</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {{#each Orders}}
+                <tr>
+                    <td>{{this.date}}</td>
+                    <td>{{this.totalAmount}}</td>
+                    <td>{{this.paytmentMethod}}</td>
+                    <td>{{this.status}}</td>
+                    <td>
+                    <td><a href="/oderedProducts/{{this._id}}" class="btn  btn-primary"> View product</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+</div>
+</section>

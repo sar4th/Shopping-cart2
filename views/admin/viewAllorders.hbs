@@ -1,0 +1,43 @@
+<section class="mt-5">
+    <div class="container">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Address</Address>
+                    </th>
+                    <th scope="col">Pincode</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {{#each Orders}}
+                <tr>
+                    <td>{{this.date}}</td>
+                    <td>{{this.delivaryDetails.adress}}</td>
+                    <td>{{this.delivaryDetails.pincode}}</td>
+                    <td>{{this.delivaryDetails.mobile}}</td>
+                    <td>{{this.totalAmount}}</td>
+                    <td>{{this.paytmentMethod}}</td>
+                    <td>{{this.status}}</td>
+                    <td>
+                        <td><a href="/oderedProducts/{{this._id}}"class="btn  btn-primary"> View product</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="row justify-content-end">
+        <div class="col-md-6  ">
+            <div class="float-right text-right ">
+                <h5 class="float-left mr-5"><span id="total">Total Rs:{{totalAmount}}</span></h5>
+                <a href="/place-order" class="btn btn-success"><b>place-order</b></a>
+            </div>
+        </div>
+    </div>
+</section>
