@@ -47,5 +47,4 @@ STRIPE_SECRET_KEY=your-stripe-secret-key```
 
 
 ## Start the development server using the following command:
-bash
 npm run dev
