@@ -2,8 +2,9 @@
   "name": "shopping-cart",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "start": "nodemon ./bin/www"
+ "scripts": {
+    "start": "nodemon ./bin/www",
+    "build": "echo 'Build script not yet implemented'"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
