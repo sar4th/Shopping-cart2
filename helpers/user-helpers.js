@@ -1,10 +1,11 @@
 var db = require("../config/connection")
 const collections = require("../config/collections")
 const bcrypt = require("bcrypt")
+var nodemailer = require('nodemailer');
 var objectId = require("mongodb").ObjectId
 const { response } = require("../app")
 const Razorpay = require('razorpay');
-const { Console } = require("console")
+
 
 var instance = new Razorpay({
   key_id: 'rzp_test_vCjJCnp6IIgh2D',
@@ -358,5 +359,77 @@ module.exports = {
         resolve()
       })
     })
+  },
+  sendMails:()=>{
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'mailtest0475@gmail.com',
+        pass: 'gvweuvidogpcqeqo'
+      }
+    });
+
+    var mailOptions = {
+      from: 'mailtest0475@gmail.com',
+      to: 'sarathrajkrla@gmail.com',
+      subject: 'Sending Email using Node.js',
+      text: 'That was easy!'
+    }
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+  },
+  ChangeStatus:(OrderId)=>{
+    return new Promise((resolve, reject) => {
+      db.get().collection(collections.ORDER_COLLECTION).updateOne({_id: new objectId(OrderId)},
+      {
+        $set:{
+          status:"Canceled"
+        }
+      }).then(()=>{
+        resolve(response)
+      })
+    })
+  },
+  adminLogin: (loginData) => {
+    return new Promise(async (resolve, reject) => {
+      let loginStatus = false;
+      let response = {};
+      let admin = await db
+        .get()
+        .collection(collections.ADMIN_COLLECTION)
+        .findOne({ username: loginData.username });
+      if (admin) {
+        bcrypt.compare(loginData.password, admin.password).then((status) => {
+          if (status) {
+            response.admin = admin;
+            response.status = true;
+            resolve(response);
+            console.log("Loginned Successfully");
+          } else {
+            console.log("Login failed");
+            resolve({ status: false });
+          }
+        });
+      } else {
+        console.log("Admin not found");
+        resolve({ status: false });
+      }
+    });
   }
+
+
+  // adminLogin:(userData)=>{
+  //   return new Promise((resolve, reject) => {
+  //     console.log(userData)
+  //   })
+  // }
+
+
 }

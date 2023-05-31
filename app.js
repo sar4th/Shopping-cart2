@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var path = require('path');
 var createError = require('http-errors');
+var multer=require("multer")
 var fileUpload = require('express-fileupload');
 var db = require('./config/connection');
 
@@ -30,7 +31,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload());
+app.use(fileUpload({
+  useTempFiles : true,
+  tempFileDir : path.join(__dirname, 'tmp')
+}));
 db.connect((err)=>{
   if(err) console.log("database is not connected"+err)
   else console.log("connected to database")
@@ -42,6 +46,8 @@ app.use(session({
 }));
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
+// file upload
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

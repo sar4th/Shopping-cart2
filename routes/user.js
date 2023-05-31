@@ -1,9 +1,11 @@
 var express = require('express');
 const session = require('express-session');
+const nodemailer=require("nodemailer")
 const { response } = require('../app');
 var router = express.Router();
 const productHelpers = require('../helpers/product-helpers')
-const userHelpers = require("../helpers/user-helpers")
+const userHelpers = require("../helpers/user-helpers");
+const { order } = require('paypal-node-sdk');
 var verifyLogin = (req, res, next) => {
   if (req.session.loggedIn) {
     next()
@@ -99,6 +101,8 @@ router.post("/place-order", async (req, res) => {
       })
      
     }
+  }).then(()=>{
+    userHelpers.sendMails()
   })
 });
 
@@ -117,6 +121,7 @@ router.get("/oderedProducts/:id", async (req, res) => {
 router.get("/orders", async (req, res) => {
   let Orders = await userHelpers.getAllorders(req.session.user._id)
   res.render("user/view-orders", { user: req.session.user, Orders })
+ 
 })
 router.post("/verify-payment",(req,res)=>{
   console.log(req.body)
@@ -128,6 +133,42 @@ router.post("/verify-payment",(req,res)=>{
     res.json({status:false})
   })
 })
+router.get("/cancel-order/:id", (req, res) => {
+  userHelpers.ChangeStatus(req.params.id,req.session.user._id).then((responce) => {
+    console.log("working");
+    res.json(response)
+    console.log(response);
+  })
+})
+router.get("/upload",(req,res)=>{
+  res.render("user/upload")
+})
+router.post('/upload', function(req, res) {
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  let pdfFile = req.files.pdfFile;
+  pdfFile.mv('./public/uploads/' + pdfFile.name, function(err) {
+    if (err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.send('File uploaded successfully!');
+  });
+});
+
+
+router.get('/download', (req, res) => {
+  const fileIndex = req.query.index; // get the index of the file to download
+  const fileName = req.files.pdfFiles[fileIndex].name; // get the filename of the selected file
+  const filePath = path.join(__dirname, 'public', 'uploads', fileName);
+  const stat = fs.statSync(filePath);
+  res.setHeader('Content-Length', stat.size);
+  res.setHeader('Content-Type', 'application/pdf');
+  res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
+  const stream = fs.createReadStream(filePath);
+  stream.pipe(res);
+});
 
 
 module.exports = router;

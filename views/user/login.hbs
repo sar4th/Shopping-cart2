@@ -1,5 +1,5 @@
  <div class="container mt-5">
- <form action="/login" method="post">
+ <form action="/login" method="post" id="loginForm">
   <div class="login-form">
     <h1>Login</h1>
     {{#if loginErr}}
@@ -19,3 +19,46 @@
   </div>
 </form>
 </div>
+<script>
+  $(document).ready(function() {
+  $('#loginForm').validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 3
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true,
+        minlength: 8
+      }
+    },
+    messages: {
+      name: {
+        required: "Please enter your name.",
+        minlength: "Your name must be at least 3 characters long."
+      },
+      email: {
+        required: "Please enter your email address.",
+        email: "Please enter a valid email address."
+      },
+      password: {
+        required: "Please enter your password.",
+        minlength: "Your password must be at least 8 characters long."
+      }
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+</script>
+<style>
+  label.error {
+  color: red;
+}
+
+</style>

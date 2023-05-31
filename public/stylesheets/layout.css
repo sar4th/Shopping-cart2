@@ -5,6 +5,7 @@
     font-family: sans-serif;
 }
 
+/* Navbar */
 .navbar-nav .nav-link {
     margin-right: 20px;
 }
@@ -114,7 +115,7 @@ section .main .main_img img{
 .services{
     width: 100%;
     height: auto;
-    margin: 35px 0;
+    margin: 100px 0 35px;
 }
 
 .services .services_box{
@@ -608,4 +609,72 @@ footer .end{
 footer .end span{
     color: #089da1;
     margin-left: 10px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.featured_book_card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.featured_book_card:hover {
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+.featured_book_img {
+    height: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.featured_book_img img {
+    height: 100%;
+    max-width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.featured_book_img:hover img {
+    transform: scale(1.1);
+}
+
+.featured_book_tag {
+    padding: 20px;
+}
+
+.featured_book_tag h2 {
+    margin-bottom: 10px;
+}
+
+.featured_book_tag .writer {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.featured_book_tag .categories {
+    margin-bottom: 10px;
+}
+
+.book_price {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.f_btn {
+    width: 100%;
+    font-size: 16px;
+}
+.f_btn:hover {
+    background: #0a74b9;
 }

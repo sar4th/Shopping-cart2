@@ -2,15 +2,13 @@
     <div class="main">
 
         <div class="main_tag">
-            <h1>WELCOME TO<br><span>BOOK STORE</span></h1>
+            <h1>WELCOME TO<br><span>BOOK HIVE</span></h1>
 
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda molestias atque laborum
                 non fuga ex deserunt. Exercitationem velit ducimus praesentium, obcaecati hic voluptate id
                 tenetur fuga illum quidem omnis? Rerum?
             </p>
-            <a href="#" class="main_btn">Learn More</a>
-
         </div>
 
         <div class="main_img">
@@ -20,19 +18,16 @@
     </div>
 </section>
 <!--Services-->
-
-
 <div class="services">
-
     <div class="services_box">
 
-      <div class="services_card">
-    <i class="fas fa-pen-to-square"></i>
-    <h3>Fast Delivery</h3>
-    <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-    </p>
-</div>
+        <div class="services_card">
+            <i class="fas fa-pen-to-square"></i>
+            <h3>Fast Delivery</h3>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
+        </div>
 
 
         <div class="services_card">
@@ -68,17 +63,18 @@
 
 
 {{!-- <div class="container mt-5"> --}}
+
     <h1 style="text-align: center;" id="books">Featured Books</h1>
     <div class="row">
         {{#each products}}
         <div class="col-md-3">
-            <div class="featured_boks">
+            <div class="featured_book">
                 <div class="featured_book_box">
                     <div class="featured_book_card">
-                        <div class="featurde_book_img">
-                            <img src="/product-image/{{this._id}}.jpg">
+                        <div class="featured_book_img">
+                            <img src="/product-image/{{this._id}}.jpg" alt="{{this.name}}">
                         </div>
-                        <div class="featurde_book_tag">
+                        <div class="featured_book_tag">
                             <h2>{{this.name}}</h2>
                             <p class="writer">John Deo</p>
                             <div class="categories">{{this.description}}</div>
@@ -86,68 +82,66 @@
 
                             <button onclick="addTocart('{{this._id}}')" class="btn btn-primary f_btn">Add to
                                 cart</button>
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
         {{/each}}
     </div>
+
     {{!--
 </div> --}}
 
-    {{!-- slider --}}
-    <div class="container">
- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src=" images/slider-img1.jpg" class="d-block w-100" alt="...">
+{{!-- slider --}}
+<div class="container mt-5">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src=" images/slider-img1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="images/slider-img-2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src=" images/slider-img3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="images/slider-4.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <div class="carousel-item">
-      <img src="images/slider-img-2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src=" images/slider-img3.jpg" class="d-block w-100" alt="...">
-    </div>
-       <div class="carousel-item">
-      <img src="images/slider-4.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 </div>
 
-<h1 style="text-align: center;" id="books">Popular Books</h1>
+<h1 style="text-align: center;" id="books">Best Sellers</h1>
 <div class="row">
     {{#each products}}
     <div class="col-md-3">
-        <div class="featured_boks">
+        <div class="featured_book">
             <div class="featured_book_box">
                 <div class="featured_book_card">
-                    <div class="featurde_book_img">
-                        <img src="/product-image/{{this._id}}.jpg">
+                    <div class="featured_book_img">
+                        <img src="/product-image/{{this._id}}.jpg" alt="{{this.name}}">
                     </div>
-                    <div class="featurde_book_tag">
+                    <div class="featured_book_tag">
                         <h2>{{this.name}}</h2>
                         <p class="writer">John Deo</p>
                         <div class="categories">{{this.description}}</div>
                         <p class="book_price">{{this.price}}<sub><del>$28.60</del></sub></p>
 
-                        <button onclick="addTocart('{{this._id}}')" class="btn btn-primary f_btn">Add to cart</button>
-
-
+                        <button onclick="addTocart('{{this._id}}')" class="btn btn-primary f_btn">Add to
+                            cart</button>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -158,9 +152,8 @@
 <!--reviews-->
 
 <div class="reviews">
-    <h1>Reviews</h1>
-
-    <div class="review_box">
+<h1>Reviews</h1>
+    <div class="review_box ">
 
         <div class="review_card">
             <i class="fa-solid fa-quote-right"></i>
@@ -170,8 +163,6 @@
             <div class="card">
                 <h2>John Deo</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eos doloribus iure
-                    distinctio! Eos dolorem quam, nisi amet saepe totam, quas quidem laboriosam dolore,
-                    tenetur itaque nostrum voluptas excepturi aut.
                 </p>
                 <div class="review_icon">
                     <i class="fa-solid fa-star"></i>
@@ -191,8 +182,7 @@
             <div class="card">
                 <h2>John Deo</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eos doloribus iure
-                    distinctio! Eos dolorem quam, nisi amet saepe totam, quas quidem laboriosam dolore,
-                    tenetur itaque nostrum voluptas excepturi aut.
+
                 </p>
                 <div class="review_icon">
                     <i class="fa-solid fa-star"></i>
@@ -212,9 +202,7 @@
             <div class="card">
                 <h2>John Deo</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eos doloribus iure
-                    distinctio! Eos dolorem quam, nisi amet saepe totam, quas quidem laboriosam dolore,
-                    tenetur itaque nostrum voluptas excepturi aut.
-                </p>
+
                 <div class="review_icon">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -233,9 +221,7 @@
             <div class="card">
                 <h2>John Deo</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eos doloribus iure
-                    distinctio! Eos dolorem quam, nisi amet saepe totam, quas quidem laboriosam dolore,
-                    tenetur itaque nostrum voluptas excepturi aut.
-                </p>
+
                 <div class="review_icon">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -275,78 +261,6 @@
 <div class="banner">
     <a href="#" class="banner_btn">Learn More</a>
 </div>
-
-
-
-
-
-<!--Blog-->
-
-<div class="blog">
-    <h1>Our Blog</h1>
-    <div class="blog_box">
-
-        <div class="blog_card">
-            <div class="blog_img">
-                <img src="images/blog_1.jpg">
-            </div>
-            <div class="blog_tag">
-                <h2>Bloger</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quos quis quasi ut
-                    impedit reiciendis voluptatem rem esse ratione omnis, laudantium earum. Aperiam
-                    nesciunt dolore aliquam repellat consequatur amet ducimus.
-                </p>
-                <div class="blog_icon">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="blog_card">
-            <div class="blog_img">
-                <img src="images/blog_2.jpg">
-            </div>
-            <div class="blog_tag">
-                <h2>Bloger</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quos quis quasi ut
-                    impedit reiciendis voluptatem rem esse ratione omnis, laudantium earum. Aperiam
-                    nesciunt dolore aliquam repellat consequatur amet ducimus.
-                </p>
-                <div class="blog_icon">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="blog_card">
-            <div class="blog_img">
-                <img src="images/blog_3.jpg">
-            </div>
-            <div class="blog_tag">
-                <h2>Bloger</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quos quis quasi ut
-                    impedit reiciendis voluptatem rem esse ratione omnis, laudantium earum. Aperiam
-                    nesciunt dolore aliquam repellat consequatur amet ducimus.
-                </p>
-                <div class="blog_icon">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-
-
-
 <!--Footer-->
 
 <footer id="footer">
@@ -393,10 +307,8 @@
         </div>
 
         <div class="tag">
-            <h1>Newsletter</h1>
-            <div class="search_bar">
-                <input type="text" placeholder="You email id here">
-                <button type="submit">Subscribe</button>
+            <h1>Contact Us</h1>
+                <a style="font-size: 20px;" href="https://mail.google.com/"><i class="fa-regular fa-envelope"></i></a>
             </div>
         </div>
 

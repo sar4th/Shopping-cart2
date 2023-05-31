@@ -1,7 +1,6 @@
 var db=require("../config/connection")
 const { Collection } = require("mongodb")
 const collections = require("../config/collections")
-// var paypal = require('paypal-rest-sdk');
 var objectId =require("mongodb").ObjectId
 module.exports={
     addProduct:(product,callback)=>{

@@ -113,3 +113,45 @@ rzp1.open();
         })
     }
 </script>
+<script>
+  $(document).ready(function() {
+  $("#payment-form").validate({
+    rules: {
+      address: "required",
+      pincode: {
+        required: true,
+        minlength: 6,
+        digits: true
+      },
+      mobile: {
+        required: true,
+        minlength: 10,
+        digits: true
+      }
+    },
+    messages: {
+      address: "Please enter your delivery address",
+      pincode: {
+        required: "Please enter your pincode",
+        minlength: "Pincode must be at least 6 characters long",
+        digits: "Please enter only digits"
+      },
+      mobile: {
+        required: "Please enter your mobile number",
+        minlength: "Mobile number must be at least 10 digits long",
+        digits: "Please enter only digits"
+      }
+    },
+    errorClass: "text-danger",
+    errorElement: "span",
+    highlight: function(element, errorClass, validClass) {
+      $(element).addClass(errorClass).removeClass(validClass);
+      $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element, errorClass, validClass) {
+      $(element).removeClass(errorClass).addClass(validClass);
+      $(element).closest('.form-group').removeClass('has-error');
+    }
+  });
+});
+</script>

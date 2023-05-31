@@ -1,0 +1,45 @@
+<form id="upload-form" enctype="multipart/form-data">
+  <input type="file" name="file" id="file-input">
+  <button type="submit">Upload File</button>
+</form>
+<script>
+    const form = document.getElementById('upload-form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // prevent the form from submitting normally
+
+  const fileInput = document.getElementById('file-input');
+  const file = fileInput.files[0]; // get the uploaded file
+
+  // create a FormData object to store the file and other form data
+  const formData = new FormData();
+  formData.append('file', file);
+
+  // send a POST request to the server to handle the file upload
+  fetch('/upload', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      // handle successful upload
+      console.log('File uploaded successfully!');
+    } else {
+      // handle upload error
+      console.error('Upload error:', response.statusText);
+    }
+  })
+  .catch(error => {
+    // handle fetch error
+    console.error('Fetch error:', error);
+  });
+});
+</script>
+  <button id="download-btn">Download PDF</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $('#download-btn').click(() => {
+        window.location.href = '/download';
+      });
+    </script>
