@@ -13,6 +13,20 @@
       <input type="text" class="form-control" id="price" placeholder="" name="price">
     </div>
     <div class="mb-3">
+      <label for="section" class="form-label">Section</label>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="sectionDropdown" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Select Section
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="sectionDropdown">
+          <li><a class="dropdown-item" href="#" data-section="Featured">Featured</a></li>
+          <li><a class="dropdown-item" href="#" data-section="BestSeller">Best Seller</a></li>
+        </ul>
+        <input type="hidden" id="selectedSection" name="selectedSection" value="">
+      </div>
+    </div>
+    <div class="mb-3">
       <label for="pwd" class="form-label">Description</label>
       <input type="text" class="form-control" placeholder="" name="description">
     </div>
@@ -23,3 +37,17 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
+<script>
+  $(document).ready(function () {
+    $('.dropdown-item').click(function () {
+      // Get the selected section name from the data attribute
+      var selectedSection = $(this).data('section');
+
+      // Update the hidden input field's value with the selected section name
+      $('#selectedSection').val(selectedSection);
+
+      // Update the button's text with the selected section name (optional)
+      $('#sectionDropdown').text(selectedSection);
+    });
+  });
+</script>

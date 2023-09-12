@@ -1,3 +1,4 @@
+
 <section>
     <div class="main">
 
@@ -67,15 +68,16 @@
     <h1 style="text-align: center;" id="books">Featured Books</h1>
     <div class="row">
         {{#each products}}
+        {{#if (eq selectedSection "Featured")}}
         <div class="col-md-3">
             <div class="featured_book">
                 <div class="featured_book_box">
                     <div class="featured_book_card">
-                        <div class="featured_book_img">
+                        <div class="featured_book_img" style="height: 144px;">
                             <img src="/product-image/{{this._id}}.jpg" alt="{{this.name}}">
                         </div>
                         <div class="featured_book_tag">
-                            <h2>{{this.name}}</h2>
+                            <h3>{{this.name}}</h3>
                             <p class="writer">John Deo</p>
                             <div class="categories">{{this.description}}</div>
                             <p class="book_price">{{this.price}}<sub><del>$28.60</del></sub></p>
@@ -87,8 +89,10 @@
                 </div>
             </div>
         </div>
+        {{/if}}
         {{/each}}
     </div>
+
 
     {{!--
 </div> --}}
@@ -152,7 +156,7 @@
 <!--reviews-->
 
 <div class="reviews">
-<h1>Reviews</h1>
+    <h1>Reviews</h1>
     <div class="review_box ">
 
         <div class="review_card">
@@ -308,9 +312,9 @@
 
         <div class="tag">
             <h1>Contact Us</h1>
-                <a style="font-size: 20px;" href="https://mail.google.com/"><i class="fa-regular fa-envelope"></i></a>
-            </div>
+            <a style="font-size: 20px;" href="https://mail.google.com/"><i class="fa-regular fa-envelope"></i></a>
         </div>
+    </div>
 
     </div>
 </footer>

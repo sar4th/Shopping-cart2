@@ -4,14 +4,14 @@ const collections = require("../config/collections")
 var objectId =require("mongodb").ObjectId
 module.exports={
     addProduct:(product,callback)=>{
-       
+
       db.get().collection("product").insertOne(product).then((data)=>{
 callback(data.insertedId)
-      })  
+      })
     },
   getAllproducts:()=>{
 return new Promise(async (resolve, reject) => {
-let products=await db.get().collection(collections.PRODUCT_COLLECTION).find().toArray()
+let products=await db.get()?.collection(collections?.PRODUCT_COLLECTION).find().toArray()
   resolve(products)
 })
   },
@@ -20,7 +20,7 @@ let products=await db.get().collection(collections.PRODUCT_COLLECTION).find().to
       db.get().collection(collections.PRODUCT_COLLECTION).deleteOne({_id:new objectId(proId)}).then((response)=>{
         resolve(response)
       })
-     
+
     })
 
   },
@@ -29,7 +29,7 @@ let products=await db.get().collection(collections.PRODUCT_COLLECTION).find().to
       db.get().collection(collections.PRODUCT_COLLECTION).findOne({_id:new objectId(proId)}).then((response)=>{
         resolve(response)
       })
-     
+
     })
 
   },
@@ -42,15 +42,16 @@ let products=await db.get().collection(collections.PRODUCT_COLLECTION).find().to
         name:proDetails.name,
         description:proDetails.description,
         price:proDetails.price,
-        category:proDetails.category
-      } 
-        
+        category:proDetails.category,
+        section:proDetails.section,
+      }
+
       }).then((response)=>{
         resolve()
       })
-     
+
     })
 
   }
 
-} 
+}
