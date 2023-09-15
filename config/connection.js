@@ -4,7 +4,7 @@ const state = {
   db: null,
 };
 
-const url = "mongodb+srv://sarathraj:sarath123@cluster0.lgyxhsj.mongodb.net/";
+const url = "";
 const dbName = "shopping";
 const client = new MongoClient(url);
 
